@@ -1,54 +1,123 @@
+"use client";
+import { useState } from "react";
+
 const Header = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
   return (
     <div className=" pl-[40px] flex flex-col ">
       <div className="flex justify-between">
-        <ul className="flex gap-[10px]">
-          <li className="flex text-[#6D6D6D] py-[10px] px-[10px]">
+        <ul className="flex items-center gap-[10px]">
+          <li
+            className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
+              showDropdown ? "bg-[#22385F] text-white" : "bg-transparent"
+            }`}
+            onClick={toggleDropdown}
+          >
             Şəhər
             <img
-              src="/src/assets/icons/tabler_caret-down-filled (3).png"
+              src={
+                showDropdown
+                  ? "/src/assets/icons/tabler_caret-down-filled (5).png"
+                  : "/src/assets/icons/tabler_caret-down-filled (3).png"
+              }
               alt=""
-              className="w-[24px] h-[24px]"
+              className="w-[24px] h-[24px] ml-2"
             />
+            <div
+              className={`absolute top-full left-0 w-[313px] bg-white border border-[#E5E7EA] rounded  transition-all duration-200 ease-in-out transform ${
+                showDropdown ? "opacity-100 scale-100" : "opacity-0 scale-95"
+              }`}
+            >
+              <ul className="flex flex-col gap-[10px] pl-[20px] pr-[10px] text-[#6D6D6D] py-[20px] text-[14px]">
+                <li className=" cursor-pointer flex justify-between">
+                  Baku
+                  <img
+                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    alt=""
+                    className="w-[16px] h-[16px]"
+                  />
+                </li>
+                <li className=" cursor-pointer flex justify-between">
+                  Ganja
+                  <img
+                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    alt=""
+                    className="w-[16px] h-[16px]"
+                  />
+                </li>
+                <li className=" cursor-pointer flex justify-between">
+                  Lənkaran
+                  <img
+                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    alt=""
+                    className="w-[16px] h-[16px]"
+                  />
+                </li>
+                <li className=" cursor-pointer flex justify-between">
+                  Nakhchivan
+                  <img
+                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    alt=""
+                    className="w-[16px] h-[16px]"
+                  />
+                </li>
+                <li className=" cursor-pointer flex justify-between">
+                  Shaki
+                  <img
+                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    alt=""
+                    className="w-[16px] h-[16px]"
+                  />
+                </li>
+              </ul>
+              <button className="bg-[#22385F] text-[14px] text-[#FFFFFF] mb-[10px] ml-[15px]  rounded-[8px] py-[10px] px-[118px] ">
+                Göstər
+              </button>
+            </div>
           </li>
-          <li className="flex text-[#6D6D6D] py-[10px] px-[10px]">
+
+          <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             İl
             <img
               src="/src/assets/icons/tabler_caret-down-filled (3).png"
               alt=""
-              className="w-[24px] h-[24px]"
+              className="w-[24px] h-[24px] ml-2"
             />
           </li>
-          <li className="flex text-[#6D6D6D] py-[10px] px-[10px]">
+          <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             Ay
             <img
               src="/src/assets/icons/tabler_caret-down-filled (3).png"
               alt=""
-              className="w-[24px] h-[24px]"
+              className="w-[24px] h-[24px] ml-2"
             />
           </li>
-          <li className="flex text-[#6D6D6D] py-[10px] px-[10px]">
+          <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             Vəzifə
             <img
               src="/src/assets/icons/tabler_caret-down-filled (3).png"
               alt=""
-              className="w-[24px] h-[24px]"
+              className="w-[24px] h-[24px] ml-2"
             />
           </li>
-          <li className="flex text-[#6D6D6D] py-[10px] px-[10px]">
+          <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             Şirkət
             <img
               src="/src/assets/icons/tabler_caret-down-filled (3).png"
               alt=""
-              className="w-[24px] h-[24px]"
+              className="w-[24px] h-[24px] ml-2"
             />
           </li>
-          <li className="flex text-[#6D6D6D] py-[10px] px-[10px]">
+          <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             HR mütəxəssis
             <img
               src="/src/assets/icons/tabler_caret-down-filled (3).png"
               alt=""
-              className="w-[24px] h-[24px]"
+              className="w-[24px] h-[24px] ml-2"
             />
           </li>
         </ul>
@@ -162,21 +231,21 @@ const Header = () => {
           </div>
         </div>
         <div className="flex gap-[20px]">
-          <div className="flex items-center gap-[5px] py-[3px] px-[4px] ">
+          <div className="flex items-center gap-[5px] py-[12px] px-[14px]  rounded-[8px] border-solid border-[1px] border-[#E5E7EA]">
             <img
-              src="src/assets/icons/f7_status.png"
+              src="src/assets/icons/vscode-icons_file-type-excel (1).png"
               alt=""
               className="w-[20px] h-[20px]"
             />
-            <p className="text-[#403F3F] ">Status</p>
+            <p className="text-[#403F3F] font-[500]">Export xlsx</p>
           </div>
-          <div className="flex items-center gap-[5px] py-[3px] px-[4px]">
+          <div className="flex items-center gap-[5px] py-[12px] px-[14px]  rounded-[8px] border-solid border-[1px] border-[#E5E7EA]">
             <img
-              src="src/assets/icons/stash_data-date-duotone.png"
+              src="src/assets/icons/vscode-icons_file-type-pdf2.png"
               alt=""
-              className="w-[26px] h-[26px]"
+              className="w-[20px] h-[20px]"
             />
-            <p className="text-[#403F3F] ">Tarix</p>
+            <p className="text-[#403F3F] font-[500]">Export PDF</p>
           </div>
         </div>
       </div>
