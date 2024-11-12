@@ -3,9 +3,11 @@ import Header from "./components/Header/header";
 
 function App() {
   return (
-    <div className="flex">
+    <div className="flex foto-sans">
       <Dashboard />
-      <Header />
+      <div className="ml-[10px] mt-[50px] mr-[50px] w-[100vw]">
+        <Header />
+      </div>
     </div>
   );
 }
