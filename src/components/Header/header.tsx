@@ -21,8 +21,8 @@ const Header = () => {
             <img
               src={
                 showDropdown
-                  ? "/src/assets/icons/tabler_caret-down-filled (5).png"
-                  : "/src/assets/icons/tabler_caret-down-filled (3).png"
+                  ? "/icons/tabler_caret-down-filled (5).png"
+                  : "/icons/tabler_caret-down-filled (3).png"
               }
               alt=""
               className="w-[24px] h-[24px] ml-2"
@@ -36,7 +36,7 @@ const Header = () => {
                 <li className=" cursor-pointer flex justify-between">
                   Baku
                   <img
-                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    src="/icons/Frame 427320147 (1).png"
                     alt=""
                     className="w-[16px] h-[16px]"
                   />
@@ -44,7 +44,7 @@ const Header = () => {
                 <li className=" cursor-pointer flex justify-between">
                   Ganja
                   <img
-                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    src="/icons/Frame 427320147 (1).png"
                     alt=""
                     className="w-[16px] h-[16px]"
                   />
@@ -52,7 +52,7 @@ const Header = () => {
                 <li className=" cursor-pointer flex justify-between">
                   Lənkaran
                   <img
-                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    src="/icons/Frame 427320147 (1).png"
                     alt=""
                     className="w-[16px] h-[16px]"
                   />
@@ -60,7 +60,7 @@ const Header = () => {
                 <li className=" cursor-pointer flex justify-between">
                   Nakhchivan
                   <img
-                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    src="/icons/Frame 427320147 (1).png"
                     alt=""
                     className="w-[16px] h-[16px]"
                   />
@@ -68,7 +68,7 @@ const Header = () => {
                 <li className=" cursor-pointer flex justify-between">
                   Shaki
                   <img
-                    src="/src/assets/icons/Frame 427320147 (1).png"
+                    src="/icons/Frame 427320147 (1).png"
                     alt=""
                     className="w-[16px] h-[16px]"
                   />
@@ -83,7 +83,7 @@ const Header = () => {
           <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             İl
             <img
-              src="/src/assets/icons/tabler_caret-down-filled (3).png"
+              src="/icons/tabler_caret-down-filled (3).png"
               alt=""
               className="w-[24px] h-[24px] ml-2"
             />
@@ -91,7 +91,7 @@ const Header = () => {
           <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             Ay
             <img
-              src="/src/assets/icons/tabler_caret-down-filled (3).png"
+              src="/icons/tabler_caret-down-filled (3).png"
               alt=""
               className="w-[24px] h-[24px] ml-2"
             />
@@ -99,7 +99,7 @@ const Header = () => {
           <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             Vəzifə
             <img
-              src="/src/assets/icons/tabler_caret-down-filled (3).png"
+              src="/icons/tabler_caret-down-filled (3).png"
               alt=""
               className="w-[24px] h-[24px] ml-2"
             />
@@ -107,7 +107,7 @@ const Header = () => {
           <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             Şirkət
             <img
-              src="/src/assets/icons/tabler_caret-down-filled (3).png"
+              src="/icons/tabler_caret-down-filled (3).png"
               alt=""
               className="w-[24px] h-[24px] ml-2"
             />
@@ -115,7 +115,7 @@ const Header = () => {
           <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             HR mütəxəssis
             <img
-              src="/src/assets/icons/tabler_caret-down-filled (3).png"
+              src="/icons/tabler_caret-down-filled (3).png"
               alt=""
               className="w-[24px] h-[24px] ml-2"
             />

@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
         >
           <div className={`flex mx-[-2px] ${isOpen ? "w-full" : ""}`}>
             <img
-              src="/src/assets/icons/Planlama (1).png"
+              src="/icons/Planlama (1).png"
               alt="menuIcon"
               className=" w-[44px] h-[44px]"
             />
@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
                   }}
                 >
                   <img
-                    src="/src/assets/icons/cuida_x-outline (1).png"
+                    src="/icons/cuida_x-outline (1).png"
                     alt="xIcon"
                     className="w-[20px] h-[20px]"
                   />
@@ -53,7 +53,7 @@ const Dashboard: React.FC = () => {
             <div className="flex items-center gap-[10px] bg-[#223250] rounded-[8px] px-[10px] py-[5px] mt-[8px]">
               <div className="mx-[-2px]">
                 <img
-                  src="/src/assets/icons/bitcoin-icons_search-outline (1).png"
+                  src="/icons/bitcoin-icons_search-outline (1).png"
                   alt="searchIcon"
                   className="  w-[20px] h-[20px] "
                 />
@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
             }`}
           >
             <img
-              src="/src/assets/icons/carbon_sales-ops (1).png"
+              src="/icons/carbon_sales-ops (1).png"
               alt="xIcon"
               className="w-[20px] h-[20px]"
             />
@@ -81,7 +81,7 @@ const Dashboard: React.FC = () => {
                 <p className="text-[14px] text-[#C9CACB]">Satınalma İcmalı</p>
                 <button>
                   <img
-                    src="/src/assets/icons/Ellipse 18 (1).png"
+                    src="/icons/Ellipse 18 (1).png"
                     alt="xIcon"
                     className="w-[10px] h-[10px]"
                   />
@@ -96,7 +96,7 @@ const Dashboard: React.FC = () => {
           >
             <div className="flex gap-[10px] w-full px-[10px]">
               <img
-                src="/src/assets/icons/grommet-icons_plan (2).png"
+                src="/icons/grommet-icons_plan (2).png"
                 alt="xIcon"
                 className="w-[20px] h-[20px]"
               />
@@ -105,7 +105,7 @@ const Dashboard: React.FC = () => {
                   <div className="flex gap-[7px] items-center">
                     <p className="text-[14px] text-[#C9CACB]">Planlama</p>
                     <img
-                      src="/src/assets/icons/prime_sort-down-fill (1).png"
+                      src="/icons/prime_sort-down-fill (1).png"
                       alt="xIcon"
                       className="w-[16px] h-[16px] mt-[3px]"
                     />
@@ -113,7 +113,7 @@ const Dashboard: React.FC = () => {
 
                   <button>
                     <img
-                      src="/src/assets/icons/Ellipse 18 (1).png"
+                      src="/icons/Ellipse 18 (1).png"
                       alt="xIcon"
                       className="w-[10px] h-[10px]"
                     />
@@ -128,7 +128,7 @@ const Dashboard: React.FC = () => {
                 }  py-[5px]`}
               >
                 <img
-                  src="/src/assets/icons/Frame 427320129.png"
+                  src="/icons/Frame 427320129.png"
                   alt="xIcon"
                   className="w-[14px] h-[20px]"
                 />
@@ -142,7 +142,7 @@ const Dashboard: React.FC = () => {
 
                     <button>
                       <img
-                        src="/src/assets/icons/Ellipse 18 (1).png"
+                        src="/icons/Ellipse 18 (1).png"
                         alt="xIcon"
                         className="w-[6px] h-[6px]"
                       />
@@ -156,7 +156,7 @@ const Dashboard: React.FC = () => {
                 } py-[5px]`}
               >
                 <img
-                  src="/src/assets/icons/mingcute_government-line (2).png"
+                  src="/icons/mingcute_government-line (2).png"
                   alt="xIcon"
                   className="w-[16px] h-[19px]"
                 />
@@ -170,7 +170,7 @@ const Dashboard: React.FC = () => {
 
                     <button>
                       <img
-                        src="/src/assets/icons/Ellipse 18 (1).png"
+                        src="/icons/Ellipse 18 (1).png"
                         alt="xIcon"
                         className="w-[6px] h-[6px]"
                       />
@@ -184,7 +184,7 @@ const Dashboard: React.FC = () => {
                 } py-[5px]`}
               >
                 <img
-                  src="/src/assets/icons/carbon_report-data (1).png"
+                  src="/icons/carbon_report-data (1).png"
                   alt="xIcon"
                   className="w-[19px] h-[19px]"
                 />
@@ -196,7 +196,7 @@ const Dashboard: React.FC = () => {
 
                     <button>
                       <img
-                        src="/src/assets/icons/Ellipse 18 (1).png"
+                        src="/icons/Ellipse 18 (1).png"
                         alt="xIcon"
                         className="w-[6px] h-[6px]"
                       />
@@ -213,7 +213,7 @@ const Dashboard: React.FC = () => {
               }`}
             >
               <img
-                src="/src/assets/icons/icon-park-outline_sales-report (2).png"
+                src="/icons/icon-park-outline_sales-report (2).png"
                 alt="xIcon"
                 className="w-[20px] h-[20px]"
               />
@@ -223,7 +223,7 @@ const Dashboard: React.FC = () => {
                   <p className="text-[14px] text-[#C9CACB]">Maliyyə</p>
                   <button>
                     <img
-                      src="/src/assets/icons/Ellipse 18 (1).png"
+                      src="/icons/Ellipse 18 (1).png"
                       alt="xIcon"
                       className="w-[10px] h-[10px]"
                     />
@@ -237,7 +237,7 @@ const Dashboard: React.FC = () => {
               }`}
             >
               <img
-                src="/src/assets/icons/mdi_company (2).png"
+                src="/icons/mdi_company (2).png"
                 alt="xIcon"
                 className="w-[20px] h-[20px]"
               />
@@ -249,7 +249,7 @@ const Dashboard: React.FC = () => {
                   </p>
                   <button>
                     <img
-                      src="/src/assets/icons/Ellipse 18 (1).png"
+                      src="/icons/Ellipse 18 (1).png"
                       alt="xIcon"
                       className="w-[10px] h-[10px]"
                     />
@@ -263,7 +263,7 @@ const Dashboard: React.FC = () => {
               }`}
             >
               <img
-                src="/src/assets/icons/teenyicons_gantt-chart-solid (2).png"
+                src="/icons/teenyicons_gantt-chart-solid (2).png"
                 alt="xIcon"
                 className="w-[20px] h-[20px]"
               />
@@ -273,7 +273,7 @@ const Dashboard: React.FC = () => {
                   <p className="text-[14px] text-[#C9CACB]">İş qrafiki</p>
                   <button>
                     <img
-                      src="/src/assets/icons/Ellipse 18 (1).png"
+                      src="/icons/Ellipse 18 (1).png"
                       alt="xIcon"
                       className="w-[10px] h-[10px]"
                     />
@@ -287,7 +287,7 @@ const Dashboard: React.FC = () => {
               }`}
             >
               <img
-                src="/src/assets/icons/icon-park-outline_folder-quality (1).png"
+                src="/icons/icon-park-outline_folder-quality (1).png"
                 alt="xIcon"
                 className="w-[20px] h-[20px]"
               />
@@ -297,7 +297,7 @@ const Dashboard: React.FC = () => {
                   <p className="text-[14px] text-[#C9CACB]">Keyfiyyət</p>
                   <button>
                     <img
-                      src="/src/assets/icons/Ellipse 18 (1).png"
+                      src="/icons/Ellipse 18 (1).png"
                       alt="xIcon"
                       className="w-[10px] h-[10px]"
                     />
