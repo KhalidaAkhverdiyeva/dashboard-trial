@@ -9,7 +9,7 @@ const MainTable = () => {
               İşə müraciyyət edən:
             </th>
             <th
-              colSpan="4"
+              colSpan={4}
               className="text-center border-solid border-[1px] border-[#DFE0E2] bg-[#295197] text-[16px] font-[600] text-white rounded-tl-[8px] px-[13px] "
             >
               Vakansiya Elanı
