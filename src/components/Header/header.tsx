@@ -1,92 +1,77 @@
 "use client";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
+import FilterModal from "../Filter Modal/filterModal";
 
 const Header = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+  const openDropDown = (dropdownName: string) => {
+    setOpenDropdown(dropdownName);
   };
+
+  const closeDropDown: MouseEventHandler<HTMLImageElement> = (e) => {
+    e.stopPropagation();
+    setOpenDropdown(null);
+  };
+
   return (
-    <div className=" pl-[40px] flex flex-col ">
+    <div className=" flex flex-col ">
       <div className="flex justify-between">
         <ul className="flex items-center gap-[10px]">
           <li
             className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
-              showDropdown ? "bg-[#22385F] text-white" : "bg-transparent"
+              openDropdown === "city"
+                ? "bg-[#22385F] text-white"
+                : "bg-transparent"
             }`}
-            onClick={toggleDropdown}
+            onClick={() => openDropDown("city")}
           >
             Şəhər
             <img
               src={
-                showDropdown
+                openDropdown === "city"
                   ? "/icons/tabler_caret-down-filled (5).png"
                   : "/icons/tabler_caret-down-filled (3).png"
               }
               alt=""
               className="w-[24px] h-[24px] ml-2"
             />
-            <div
-              className={`absolute top-full left-0 w-[313px] bg-white border border-[#E5E7EA] rounded  transition-all duration-200 ease-in-out transform ${
-                showDropdown ? "opacity-100 scale-100" : "opacity-0 scale-95"
-              }`}
-            >
-              <ul className="flex flex-col gap-[10px] pl-[20px] pr-[10px] text-[#6D6D6D] py-[20px] text-[14px]">
-                <li className=" cursor-pointer flex justify-between">
-                  Baku
-                  <img
-                    src="/icons/Frame 427320147 (1).png"
-                    alt=""
-                    className="w-[16px] h-[16px]"
-                  />
-                </li>
-                <li className=" cursor-pointer flex justify-between">
-                  Ganja
-                  <img
-                    src="/icons/Frame 427320147 (1).png"
-                    alt=""
-                    className="w-[16px] h-[16px]"
-                  />
-                </li>
-                <li className=" cursor-pointer flex justify-between">
-                  Lənkaran
-                  <img
-                    src="/icons/Frame 427320147 (1).png"
-                    alt=""
-                    className="w-[16px] h-[16px]"
-                  />
-                </li>
-                <li className=" cursor-pointer flex justify-between">
-                  Nakhchivan
-                  <img
-                    src="/icons/Frame 427320147 (1).png"
-                    alt=""
-                    className="w-[16px] h-[16px]"
-                  />
-                </li>
-                <li className=" cursor-pointer flex justify-between">
-                  Shaki
-                  <img
-                    src="/icons/Frame 427320147 (1).png"
-                    alt=""
-                    className="w-[16px] h-[16px]"
-                  />
-                </li>
-              </ul>
-              <button className="bg-[#22385F] text-[14px] text-[#FFFFFF] mb-[10px] ml-[15px]  rounded-[8px] py-[10px] px-[118px] ">
-                Göstər
-              </button>
-            </div>
+            {openDropdown === "city" && (
+              <FilterModal
+                closeDropdown={closeDropDown}
+                showDropdown={openDropdown === "city"}
+                title="Şəhər"
+                options={["Baku", "Ganja", "Lənkaran", "Nakhchivan", "Shaki"]}
+              />
+            )}
           </li>
 
-          <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
+          <li
+            className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
+              openDropdown === "year"
+                ? "bg-[#22385F] text-white"
+                : "bg-transparent"
+            }`}
+            onClick={() => openDropDown("year")}
+          >
             İl
             <img
-              src="/icons/tabler_caret-down-filled (3).png"
+              src={
+                openDropdown === "year"
+                  ? "/icons/tabler_caret-down-filled (5).png"
+                  : "/icons/tabler_caret-down-filled (3).png"
+              }
               alt=""
               className="w-[24px] h-[24px] ml-2"
             />
+            {openDropdown === "year" && (
+              <FilterModal
+                closeDropdown={closeDropDown}
+                showDropdown={openDropdown === "year"}
+                title="İl"
+                options={["2024", "2023", "2022", "2021", "2020", "2019"]}
+              />
+            )}
           </li>
           <li className="flex items-center text-[#6D6D6D] py-[10px] px-[10px]">
             Ay
@@ -122,7 +107,7 @@ const Header = () => {
           </li>
         </ul>
         <div className="flex items-center gap-[10px]">
-          <div className="py-[10px] flex justify-center items-center px-[14px] rounded-[8px] border-solid border-[1px] border-[#E5E7EA]">
+          <div className="py-[12px] flex justify-center items-center px-[14px] rounded-[8px] border-solid border-[1px] border-[#E5E7EA]">
             <img
               src="/icons/ri_reset-left-line (1).png"
               alt=""
