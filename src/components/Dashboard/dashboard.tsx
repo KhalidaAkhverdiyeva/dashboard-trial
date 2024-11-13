@@ -54,7 +54,7 @@ const Dashboard: React.FC = () => {
           </div>
 
           {isOpen && (
-            <div className="flex items-center gap-[10px] bg-[#223250] rounded-[8px] px-[10px] py-[5px] mt-[8px]">
+            <div className="flex items-center transition-all delay-300 ease-in-out gap-[10px] bg-[#223250] rounded-[8px] px-[10px] py-[5px] mt-[8px]">
               <div className="mx-[-2px]">
                 <img
                   src="/icons/bitcoin-icons_search-outline (1).png"
@@ -70,7 +70,7 @@ const Dashboard: React.FC = () => {
             </div>
           )}
           <div
-            className={`flex justify-center text-[#C9CACB] px-[10px] py-[6px] gap-[10px] mx-[-2px] ${
+            className={`flex justify-center transition-all delay-300 ease-in-out text-[#C9CACB] px-[10px] py-[6px] gap-[10px] mx-[-2px] ${
               isOpen ? "w-full mt-[20px]" : "mt-[35px]"
             }`}
           >
@@ -81,7 +81,7 @@ const Dashboard: React.FC = () => {
             />
 
             {isOpen && (
-              <div className="flex items-center w-full justify-between">
+              <div className="flex transition-all delay-300 ease-in-out items-center w-full justify-between">
                 <p className="text-[14px] text-[#C9CACB]">Satınalma İcmalı</p>
                 <button>
                   <img
@@ -105,7 +105,7 @@ const Dashboard: React.FC = () => {
                 className="w-[20px] h-[20px]"
               />
               {isOpen && (
-                <div className="flex items-center w-full justify-between">
+                <div className="flex transition-all delay-300 ease-in-out items-center w-full justify-between">
                   <div
                     onClick={(e) => {
                       e.stopPropagation();
