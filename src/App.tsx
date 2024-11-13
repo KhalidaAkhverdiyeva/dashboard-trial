@@ -1,6 +1,7 @@
 import Dashboard from "./components/Dashboard/dashboard";
 import Header from "./components/Header/header";
-import Table from "./components/Table/table";
+import MainTable from "./components/Table/mainTable";
+// import TableDetail from "./components/Table/tableDetail";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       <Dashboard />
       <div className="ml-[10px] pl-[40px] mt-[50px] mr-[50px] w-[100vw]">
         <Header />
-        <Table />
+        {/* <TableDetail /> */}
+        <MainTable />
       </div>
     </div>
   );

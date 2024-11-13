@@ -1,7 +1,7 @@
-const Table = () => {
+const TableDetail = () => {
   return (
     <div className="overflow-x-auto mt-[12px]">
-      <table className="min-w-full text-left border-separate border-spacing-x-[2px] border-spacing-y-0">
+      <table className="min-w-full text-left border-separate  border-spacing-y-0">
         <thead>
           <tr>
             <th className="bg-[#22385F] rounded-tl-[8px] border-0"></th>
@@ -24,19 +24,16 @@ const Table = () => {
         <tbody>
           {[...Array(5)].map((_, rowIndex) => (
             <tr key={rowIndex}>
-              {/* Left Sidebar (Visual Dark Blue Column) */}
               <td
-                className={`bg-[#22385F] w-[9px] border-0 ${
+                className={`bg-[#22385F] w-[9px]  border-0 ${
                   rowIndex === 4 ? "rounded-bl-[8px]" : ""
                 }`}
               ></td>
 
-              {/* Regular Data Cell (First Column - UserName) */}
               <td className="px-4 py-2 bg-white text-center border-[#DFE0E2] border-[1px]">
                 Row {rowIndex + 1}
               </td>
 
-              {/* Other Data Cells */}
               {[...Array(9)].map((_, colIndex) => (
                 <td
                   key={colIndex}
@@ -46,7 +43,6 @@ const Table = () => {
                 </td>
               ))}
 
-              {/* Right Sidebar (Visual Dark Blue Column) */}
               <td
                 className={`bg-[#22385F] w-[9px] border-0 ${
                   rowIndex === 4 ? "rounded-br-[8px]" : ""
@@ -60,4 +56,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default TableDetail;

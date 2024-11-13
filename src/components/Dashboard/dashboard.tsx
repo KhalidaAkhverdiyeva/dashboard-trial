@@ -61,7 +61,7 @@ const Dashboard: React.FC = () => {
               <input
                 type="text"
                 placeholder="Search"
-                className="text-[#5B677E] bg-transparent focus:outline-none"
+                className="placeholder:text-[#5B677E] bg-transparent focus:outline-none"
               />
             </div>
           )}
