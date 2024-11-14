@@ -1,7 +1,7 @@
 const TableDetail = () => {
   return (
-    <div className="overflow-x-auto mt-[12px]">
-      <table className="min-w-full text-left border-separate  border-spacing-y-0">
+    <div className="overflow-x-auto w-full mt-[12px]">
+      <table className=" w-full min-w-max text-left border-separate  border-spacing-y-0">
         <thead>
           <tr>
             <th className="bg-[#22385F] rounded-tl-[8px] border-0"></th>

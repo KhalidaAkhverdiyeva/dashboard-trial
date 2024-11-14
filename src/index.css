@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide scrollbar in Webkit browsers */
+::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+::-webkit-scrollbar:horizontal {
+  display: none; /* Hide horizontal scrollbar */
+}
+
+::-webkit-scrollbar:vertical {
+  display: none; /* Hide vertical scrollbar */
+}

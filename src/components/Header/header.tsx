@@ -3,7 +3,12 @@ import { MouseEventHandler, useState } from "react";
 import FilterModal from "../Filter Modal/filterModal";
 import SummaryOptions from "./summaryOptions";
 
-const Header = () => {
+interface HeaderProps {
+  onTableChange: (tableName: string) => void;
+  activeTable: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ onTableChange, activeTable }) => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleDropdown = (dropdownName: string) => {
@@ -250,7 +255,14 @@ const Header = () => {
 
       <div className="flex justify-between mt-[22px] border-b-solid border-b-[1px] rounded-bl-[8px] border-b-[#EDEDED]">
         <div className="flex gap-[10px]">
-          <div className="flex items-center gap-[5px] py-[3px] px-[4px] border-t border-r border-l border-[#E5E7EA] rounded-[8px]">
+          <div
+            onClick={() => onTableChange("mainTable")}
+            className={`cursor-pointer flex items-center gap-[5px] py-[3px] px-[4px] border-t border-r border-l ${
+              activeTable === "mainTable"
+                ? "border-black border-b-solid border-b-[1px]"
+                : "border-[#E5E7EA]"
+            } rounded-[8px]`}
+          >
             <img
               src="/icons/iconoir_eye.png"
               alt=""
@@ -258,7 +270,7 @@ const Header = () => {
             />
             <p className="text-[#6D6D6D]">Progress izləmə</p>
           </div>
-          <div className="flex items-center gap-[5px] py-[5px] px-[10px] border-t border-r border-l border-[#E5E7EA] rounded-[8px]">
+          <div className=" cursor-pointer flex items-center gap-[5px] py-[5px] px-[10px] border-t border-r border-l border-[#E5E7EA] rounded-[8px]">
             <img
               src="/icons/fluent_apps-list-20-regular.png"
               alt=""
@@ -266,13 +278,32 @@ const Header = () => {
             />
             <p className="text-[#6D6D6D]">Plan & Faktiki</p>
           </div>
-          <div className="flex items-center gap-[5px] py-[5px] bg-[#AF2082] px-[10px] border-t border-r border-l border-[#E5E7EA] rounded-[8px]">
-            <img
-              src="/icons/fluent_text-bullet-list-square-search-20-regular.png"
-              alt=""
-              className="w-[20px] h-[20px]"
-            />
-            <p className="text-[white]">Detallar</p>
+          <div>
+            <div
+              onClick={() => onTableChange("planTable")}
+              className={`cursor-pointer flex transition-all  ease-in-out items-center gap-[5px] py-[5px] px-[10px] border-t border-r border-l border-[#E5E7EA] rounded-[8px] ${
+                activeTable === "planTable"
+                  ? " bg-[#AF2082] text-white"
+                  : "bg-white text-black"
+              }`}
+            >
+              <img
+                src={`${
+                  activeTable === "planTable"
+                    ? "/icons/fluent_text-bullet-list-square-search-20-regular.png"
+                    : "/icons/fluent_text-bullet-list-square-search-20-regular (2).png"
+                }`}
+                alt="Icon"
+                className="w-[20px] h-[20px] transition-all  ease-in-out"
+              />
+              <p
+                className={`transition-all  ease-in-out ${
+                  activeTable === "planTable" ? " text-white" : "text-[#6D6D6D]"
+                }`}
+              >
+                Detallar
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex gap-[20px]">
