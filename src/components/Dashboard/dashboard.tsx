@@ -134,6 +134,7 @@ const Dashboard: React.FC = () => {
             </div>
 
             <div
+              onMouseEnter={() => setIsPlanSectionOpen(true)}
               onMouseLeave={() => setIsPlanSectionOpen(false)}
               className={`overflow-hidden transition-all bg-[#1F3D74] duration-300 ease-in-out ${
                 isPlanSectionOpen ? "max-h-[200px] my-[10px]" : "max-h-0 "

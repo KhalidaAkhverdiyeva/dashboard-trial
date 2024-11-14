@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="flex foto-sans">
       <Dashboard />
-      <div className="ml-[10px] pl-[40px] mt-[50px] mr-[50px] w-[100vw]">
+      <div className="ml-[10px] pl-[40px] mt-[50px] mr-[50px] w-[100%] ">
         <Header />
         {/* <TableDetail /> */}
         <MainTable />
