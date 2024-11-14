@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Dashboard: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isPlanSectionOpen, setIsPlanSectionOpen] = useState(true);
+  const [isPlanSectionOpen, setIsPlanSectionOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("masterSchedule");
 
   const openDashboard = () => {
@@ -134,6 +134,7 @@ const Dashboard: React.FC = () => {
             </div>
 
             <div
+              onMouseLeave={() => setIsPlanSectionOpen(false)}
               className={`overflow-hidden transition-all bg-[#1F3D74] duration-300 ease-in-out ${
                 isPlanSectionOpen ? "max-h-[200px] my-[10px]" : "max-h-0 "
               }`}
