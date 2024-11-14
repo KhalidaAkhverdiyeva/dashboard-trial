@@ -1,15 +1,16 @@
 "use client";
 import { MouseEventHandler, useState } from "react";
 import FilterModal from "../Filter Modal/filterModal";
+import SummaryOptions from "./summaryOptions";
 
 const Header = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const openDropDown = (dropdownName: string) => {
-    setOpenDropdown(dropdownName);
+  const toggleDropdown = (dropdownName: string) => {
+    setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
 
-  const closeDropDown: MouseEventHandler<HTMLImageElement> = (e) => {
+  const closeDropdown: MouseEventHandler<HTMLImageElement> = (e) => {
     e.stopPropagation();
     setOpenDropdown(null);
   };
@@ -18,102 +19,112 @@ const Header = () => {
     <div className=" flex flex-col ">
       <div className="flex justify-between">
         <ul className="flex items-center gap-[10px]">
-          <li
-            className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
-              openDropdown === "city"
-                ? "bg-[#22385F] text-white"
-                : "bg-transparent"
-            }`}
-            onClick={() => openDropDown("city")}
-          >
-            Şəhər
-            <img
-              src={
+          <li className="relative">
+            <div
+              className={`flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
                 openDropdown === "city"
-                  ? "/icons/tabler_caret-down-filled (5).png"
-                  : "/icons/tabler_caret-down-filled (3).png"
-              }
-              alt=""
-              className="w-[24px] h-[24px] ml-2"
-            />
+                  ? "bg-[#22385F] text-white"
+                  : "bg-transparent"
+              }`}
+              onClick={() => toggleDropdown("city")}
+            >
+              Şəhər
+              <img
+                src={
+                  openDropdown === "city"
+                    ? "/icons/tabler_caret-down-filled (5).png"
+                    : "/icons/tabler_caret-down-filled (3).png"
+                }
+                alt="Caret"
+                className="w-[24px] h-[24px] ml-2"
+              />
+            </div>
             <FilterModal
-              closeDropdown={closeDropDown}
+              closeDropdown={closeDropdown}
               showDropdown={openDropdown === "city"}
               title="Şəhər"
               options={["Baku", "Ganja", "Lənkaran", "Nakhchivan", "Shaki"]}
             />
           </li>
 
-          <li
-            className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
-              openDropdown === "year"
-                ? "bg-[#22385F] text-white"
-                : "bg-transparent"
-            }`}
-            onClick={() => openDropDown("year")}
-          >
-            İl
-            <img
-              src={
+          <li className="relative">
+            <div
+              className={`flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
                 openDropdown === "year"
-                  ? "/icons/tabler_caret-down-filled (5).png"
-                  : "/icons/tabler_caret-down-filled (3).png"
-              }
-              alt=""
-              className="w-[24px] h-[24px] ml-2"
-            />
+                  ? "bg-[#22385F] text-white"
+                  : "bg-transparent"
+              }`}
+              onClick={() => toggleDropdown("year")}
+            >
+              İl
+              <img
+                src={
+                  openDropdown === "year"
+                    ? "/icons/tabler_caret-down-filled (5).png"
+                    : "/icons/tabler_caret-down-filled (3).png"
+                }
+                alt=""
+                className="w-[24px] h-[24px] ml-2"
+              />
+            </div>
             <FilterModal
-              closeDropdown={closeDropDown}
+              closeDropdown={closeDropdown}
               showDropdown={openDropdown === "year"}
               title="İl"
               options={["2024", "2023", "2022", "2021", "2020", "2019"]}
             />
           </li>
-          <li
-            className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
-              openDropdown === "month"
-                ? "bg-[#22385F] text-white"
-                : "bg-transparent"
-            }`}
-            onClick={() => openDropDown("month")}
-          >
-            Ay
-            <img
-              src={
+
+          <li className="relative">
+            <div
+              className={`flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
                 openDropdown === "month"
-                  ? "/icons/tabler_caret-down-filled (5).png"
-                  : "/icons/tabler_caret-down-filled (3).png"
-              }
-              alt=""
-              className="w-[24px] h-[24px] ml-2"
-            />
+                  ? "bg-[#22385F] text-white"
+                  : "bg-transparent"
+              }`}
+              onClick={() => toggleDropdown("month")}
+            >
+              Ay
+              <img
+                src={
+                  openDropdown === "month"
+                    ? "/icons/tabler_caret-down-filled (5).png"
+                    : "/icons/tabler_caret-down-filled (3).png"
+                }
+                alt=""
+                className="w-[24px] h-[24px] ml-2"
+              />
+            </div>
             <FilterModal
-              closeDropdown={closeDropDown}
+              closeDropdown={closeDropdown}
               showDropdown={openDropdown === "month"}
               title="Ay"
               options={["Oktyabr", "Sentyabr", "Avqust", "İyul", "İyun", "May"]}
             />
           </li>
-          <li
-            className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
-              openDropdown === "role"
-                ? "bg-[#22385F] text-white"
-                : "bg-transparent"
-            }`}
-            onClick={() => openDropDown("role")}
-          >
-            Vəzifə
-            <img
-              src={
+
+          <li className="relative">
+            <div
+              className={`flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
                 openDropdown === "role"
-                  ? "/icons/tabler_caret-down-filled (5).png"
-                  : "/icons/tabler_caret-down-filled (3).png"
-              }
-              alt=""
-              className="w-[24px] h-[24px] ml-2"
-            />
+                  ? "bg-[#22385F] text-white"
+                  : "bg-transparent"
+              }`}
+              onClick={() => toggleDropdown("role")}
+            >
+              Vəzifə
+              <img
+                src={
+                  openDropdown === "role"
+                    ? "/icons/tabler_caret-down-filled (5).png"
+                    : "/icons/tabler_caret-down-filled (3).png"
+                }
+                alt=""
+                className="w-[24px] h-[24px] ml-2"
+              />
+            </div>
             <FilterModal
-              closeDropdown={closeDropDown}
+              closeDropdown={closeDropdown}
               showDropdown={openDropdown === "role"}
               title="Vəzifə"
               options={[
@@ -125,26 +136,28 @@ const Header = () => {
             />
           </li>
 
-          <li
-            className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
-              openDropdown === "company"
-                ? "bg-[#22385F] text-white"
-                : "bg-transparent"
-            }`}
-            onClick={() => openDropDown("company")}
-          >
-            Şirkət
-            <img
-              src={
+          <li className="relative">
+            <div
+              className={`flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
                 openDropdown === "company"
-                  ? "/icons/tabler_caret-down-filled (5).png"
-                  : "/icons/tabler_caret-down-filled (3).png"
-              }
-              alt=""
-              className="w-[24px] h-[24px] ml-2"
-            />
+                  ? "bg-[#22385F] text-white"
+                  : "bg-transparent"
+              }`}
+              onClick={() => toggleDropdown("company")}
+            >
+              Şirkət
+              <img
+                src={
+                  openDropdown === "company"
+                    ? "/icons/tabler_caret-down-filled (5).png"
+                    : "/icons/tabler_caret-down-filled (3).png"
+                }
+                alt=""
+                className="w-[24px] h-[24px] ml-2"
+              />
+            </div>
             <FilterModal
-              closeDropdown={closeDropDown}
+              closeDropdown={closeDropdown}
               showDropdown={openDropdown === "company"}
               title="Şirkət"
               options={[
@@ -156,26 +169,29 @@ const Header = () => {
               ]}
             />
           </li>
-          <li
-            className={`relative flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
-              openDropdown === "hr"
-                ? "bg-[#22385F] text-white"
-                : "bg-transparent"
-            }`}
-            onClick={() => openDropDown("hr")}
-          >
-            HR mütəxəssis
-            <img
-              src={
+
+          <li className="relative">
+            <div
+              className={`flex items-center text-[#6D6D6D] py-[10px] px-[10px] rounded-[8px] cursor-pointer ${
                 openDropdown === "hr"
-                  ? "/icons/tabler_caret-down-filled (5).png"
-                  : "/icons/tabler_caret-down-filled (3).png"
-              }
-              alt=""
-              className="w-[24px] h-[24px] ml-2"
-            />
+                  ? "bg-[#22385F] text-white"
+                  : "bg-transparent"
+              }`}
+              onClick={() => toggleDropdown("hr")}
+            >
+              HR mütəxəssis
+              <img
+                src={
+                  openDropdown === "hr"
+                    ? "/icons/tabler_caret-down-filled (5).png"
+                    : "/icons/tabler_caret-down-filled (3).png"
+                }
+                alt=""
+                className="w-[24px] h-[24px] ml-2"
+              />
+            </div>
             <FilterModal
-              closeDropdown={closeDropDown}
+              closeDropdown={closeDropdown}
               showDropdown={openDropdown === "hr"}
               title="HR mütəxəssis"
               options={[
@@ -187,6 +203,7 @@ const Header = () => {
             />
           </li>
         </ul>
+
         <div className="flex items-center gap-[10px]">
           <div className="py-[12px] flex justify-center items-center px-[14px] rounded-[8px] border-solid border-[1px] border-[#E5E7EA]">
             <img
@@ -279,24 +296,7 @@ const Header = () => {
       </div>
 
       <div className="flex justify-between mt-[10px] ">
-        <div className="flex gap-[10px]">
-          <div className="flex items-center gap-[5px] py-[3px] px-[5px] border-solid border-[1px] border-[#E5E7EA] rounded-[8px]">
-            <img
-              src="/icons/Ellipse 16.png"
-              alt=""
-              className="w-[10px] h-[10px]"
-            />
-            <p className="text-[#22385F] text-[14px] ">Icmal</p>
-          </div>
-          <div className="flex items-center gap-[5px] py-[5px] px-[10px] border-solid border-[1px] border-[#E5E7EA] rounded-[8px]">
-            <img
-              src="/icons/Ellipse 16 (3).png"
-              alt=""
-              className="w-[10px] h-[10px]"
-            />
-            <p className="text-[#6D6D6D] text-[14px] ">Tam</p>
-          </div>
-        </div>
+        <SummaryOptions />
         <div className="flex gap-[20px]">
           <div className="flex items-center gap-[5px] py-[12px] px-[14px]  rounded-[8px] border-solid border-[1px] border-[#E5E7EA]">
             <img

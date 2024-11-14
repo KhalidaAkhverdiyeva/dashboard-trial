@@ -10,6 +10,16 @@ const FilterModal: FC<FilterModalProps> = ({
   const [selectedOptions, setSelectedOptions] = useState<Set<string>>(
     new Set()
   );
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [showSearch, setShowSearch] = useState<boolean>(false);
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredOptions = options.filter((option) =>
+    option.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const handleOptionClick = (option: string) => {
     setSelectedOptions((prev) => {
@@ -48,6 +58,7 @@ const FilterModal: FC<FilterModalProps> = ({
           className="w-[20px] h-[20px] cursor-pointer"
         />
       </div>
+
       <div className="flex items-center gap-[5px] pl-[21px] mt-[10px]">
         <p
           className="text-[#1D7EB7] text-[12px] cursor-pointer"
@@ -63,14 +74,29 @@ const FilterModal: FC<FilterModalProps> = ({
           Sıfırla
         </p>
         <div className="h-[14px] w-[1px] bg-[#949393]"></div>
-        <img
-          src="/icons/bitcoin-icons_search-outline (2).png"
-          alt=""
-          className="w-[20px] h-[20px]"
-        />
+
+        <div className="relative flex items-center transition-all duration-300 ease-in-out">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            placeholder="Search..."
+            className={`outline-none text-[12px] rounded-[8px] placeholder:text-[12px] transition-all duration-300 ease-in-out ${
+              showSearch ? "w-[100px]" : "w-[0px]"
+            }`}
+            style={{ transitionProperty: "width" }}
+          />
+          <img
+            onClick={() => setShowSearch(!showSearch)}
+            src="/icons/bitcoin-icons_search-outline (2).png"
+            alt="search"
+            className="w-[20px] h-[20px] cursor-pointer transition-all duration-300 ease-in-out"
+          />
+        </div>
       </div>
+
       <ul className="flex flex-col gap-[10px] pl-[20px] pr-[10px] text-[#6D6D6D] py-[20px] text-[14px]">
-        {options.map((option, index) => (
+        {filteredOptions.map((option, index) => (
           <li
             key={index}
             className="cursor-pointer flex justify-between"
@@ -90,7 +116,7 @@ const FilterModal: FC<FilterModalProps> = ({
             <img
               src={`${
                 selectedOptions.has(option)
-                  ? " /icons/Frame 427320147 (4).png"
+                  ? "/icons/Frame 427320147 (4).png"
                   : "/icons/Frame 427320147 (3).png"
               }`}
               alt=""
