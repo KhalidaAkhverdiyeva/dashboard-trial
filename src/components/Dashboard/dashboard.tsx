@@ -94,6 +94,15 @@ const Dashboard: React.FC = () => {
             )}
           </div>
           <div
+            // onMouseEnter={() => setIsPlanSectionOpen(true)}
+            // onTransitionEnd={() => {
+            //   if (!isPlanSectionOpen) setIsPlanSectionOpen(false);
+            // }}
+            onMouseLeave={() => setIsPlanSectionOpen(false)}
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleSection();
+            }}
             className={`flex flex-col text-[#C9CACB] rounded-[8px] py-[6px] ${
               isOpen ? "mt-[20px] bg-[#1F3D74]" : "mt-[30px]"
             }`}
@@ -106,13 +115,7 @@ const Dashboard: React.FC = () => {
               />
               {isOpen && (
                 <div className="flex transition-all delay-300 ease-in-out items-center w-full justify-between">
-                  <div
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleSection();
-                    }}
-                    className="flex gap-[7px] items-center cursor-pointer"
-                  >
+                  <div className="flex gap-[7px] items-center cursor-pointer">
                     <p className="text-[14px] text-[#C9CACB]">Planlama</p>
                     <img
                       src="/icons/prime_sort-down-fill (1).png"
@@ -134,8 +137,6 @@ const Dashboard: React.FC = () => {
             </div>
 
             <div
-              onMouseEnter={() => setIsPlanSectionOpen(true)}
-              onMouseLeave={() => setIsPlanSectionOpen(false)}
               className={`overflow-hidden transition-all bg-[#1F3D74] duration-300 ease-in-out ${
                 isPlanSectionOpen ? "max-h-[200px] my-[10px]" : "max-h-0 "
               }`}
