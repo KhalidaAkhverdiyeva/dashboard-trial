@@ -1,7 +1,83 @@
+import React from "react";
+
+// Mock data for the table with meaningful data
+const mockData = [
+  {
+    username: "john_doe",
+    headings: [
+      "Sales Report Q1",
+      "Marketing Strategy",
+      "Product Launch",
+      "Customer Feedback",
+      "Team Meeting Notes",
+      "Budget Allocation",
+      "Client Engagement",
+      "Project Timeline",
+      "Employee Satisfaction",
+    ],
+  },
+  {
+    username: "jane_smith",
+    headings: [
+      "Sales Report Q2",
+      "SEO Strategy",
+      "Brand Development",
+      "Customer Satisfaction",
+      "Quarterly Budget",
+      "Recruitment Plan",
+      "Partnership Opportunities",
+      "Product Development",
+      "Employee Growth",
+    ],
+  },
+  {
+    username: "michael_jones",
+    headings: [
+      "Sales Report Q3",
+      "Content Strategy",
+      "New Product Features",
+      "Client Reviews",
+      "Budget Review",
+      "Team Collaboration",
+      "Marketing Campaign",
+      "Training Programs",
+      "Workplace Culture",
+    ],
+  },
+  {
+    username: "susan_lee",
+    headings: [
+      "Sales Report Q4",
+      "Market Expansion",
+      "Employee Onboarding",
+      "Customer Support",
+      "Quarterly Results",
+      "HR Policies",
+      "Product Quality",
+      "Supplier Relations",
+      "Innovation Initiatives",
+    ],
+  },
+  {
+    username: "david_wilson",
+    headings: [
+      "Sales Report FY",
+      "Global Marketing",
+      "Leadership Development",
+      "Customer Retention",
+      "Fiscal Planning",
+      "Company Growth",
+      "Technology Integration",
+      "Cultural Diversity",
+      "Sustainability Goals",
+    ],
+  },
+];
+
 const TableDetail = () => {
   return (
     <div className="overflow-x-auto w-full mt-[12px]">
-      <table className=" w-full min-w-max text-left border-separate  border-spacing-y-0">
+      <table className="w-full min-w-max text-left border-separate border-spacing-y-0">
         <thead>
           <tr>
             <th className="bg-[#22385F] rounded-tl-[8px] border-0"></th>
@@ -22,24 +98,24 @@ const TableDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {[...Array(5)].map((_, rowIndex) => (
+          {mockData.map((row, rowIndex) => (
             <tr key={rowIndex}>
               <td
-                className={`bg-[#22385F] w-[9px]  border-0 ${
+                className={`bg-[#22385F] w-[9px] border-0 ${
                   rowIndex === 4 ? "rounded-bl-[8px]" : ""
                 }`}
               ></td>
 
               <td className="px-4 py-2 bg-white text-center border-[#DFE0E2] border-[1px]">
-                Row {rowIndex + 1}
+                {row.username}
               </td>
 
-              {[...Array(9)].map((_, colIndex) => (
+              {row.headings.map((heading, colIndex) => (
                 <td
                   key={colIndex}
                   className="px-4 py-2 text-center border-[#DFE0E2] border-[1px]"
                 >
-                  Row {rowIndex + 1}
+                  {heading}
                 </td>
               ))}
 

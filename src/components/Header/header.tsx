@@ -257,10 +257,8 @@ const Header: React.FC<HeaderProps> = ({ onTableChange, activeTable }) => {
         <div className="flex gap-[10px]">
           <div
             onClick={() => onTableChange("mainTable")}
-            className={`cursor-pointer flex items-center gap-[5px] py-[3px] px-[4px] border-t border-r border-l ${
-              activeTable === "mainTable"
-                ? "border-black border-b-solid border-b-[1px]"
-                : "border-[#E5E7EA]"
+            className={`cursor-pointer flex items-center border-[#E5E7EA] gap-[5px] py-[3px] px-[4px] border-t border-r border-l ${
+              activeTable === "mainTable" ? "bg-[#E7EAF1]" : "bg-white"
             } rounded-[8px]`}
           >
             <img
@@ -270,26 +268,41 @@ const Header: React.FC<HeaderProps> = ({ onTableChange, activeTable }) => {
             />
             <p className="text-[#6D6D6D]">Progress izləmə</p>
           </div>
-          <div className=" cursor-pointer flex items-center gap-[5px] py-[5px] px-[10px] border-t border-r border-l border-[#E5E7EA] rounded-[8px]">
+          <div
+            onClick={() => onTableChange("planTable")}
+            className={`cursor-pointer flex items-center trasition-all ease-in-out gap-[5px] py-[5px] px-[10px] border-t border-r border-l border-[#E5E7EA] rounded-[8px] ${
+              activeTable === "planTable" ? "bg-[#D3AB1D] text-white" : ""
+            }`}
+          >
             <img
-              src="/icons/fluent_apps-list-20-regular.png"
+              src={
+                activeTable === "planTable"
+                  ? "/icons/fluent_apps-list-20-regular (1).png"
+                  : "/icons/fluent_apps-list-20-regular.png"
+              }
               alt=""
               className="w-[20px] h-[20px]"
             />
-            <p className="text-[#6D6D6D]">Plan & Faktiki</p>
+            <p
+              className={
+                activeTable === "planTable" ? "text-white" : "text-[#6D6D6D]"
+              }
+            >
+              Plan & Faktiki
+            </p>
           </div>
           <div>
             <div
-              onClick={() => onTableChange("planTable")}
+              onClick={() => onTableChange("detailTable")}
               className={`cursor-pointer flex transition-all  ease-in-out items-center gap-[5px] py-[5px] px-[10px] border-t border-r border-l border-[#E5E7EA] rounded-[8px] ${
-                activeTable === "planTable"
+                activeTable === "detailTable"
                   ? " bg-[#AF2082] text-white"
                   : "bg-white text-black"
               }`}
             >
               <img
                 src={`${
-                  activeTable === "planTable"
+                  activeTable === "detailTable"
                     ? "/icons/fluent_text-bullet-list-square-search-20-regular.png"
                     : "/icons/fluent_text-bullet-list-square-search-20-regular (2).png"
                 }`}
@@ -298,7 +311,9 @@ const Header: React.FC<HeaderProps> = ({ onTableChange, activeTable }) => {
               />
               <p
                 className={`transition-all  ease-in-out ${
-                  activeTable === "planTable" ? " text-white" : "text-[#6D6D6D]"
+                  activeTable === "detailTable"
+                    ? " text-white"
+                    : "text-[#6D6D6D]"
                 }`}
               >
                 Detallar
