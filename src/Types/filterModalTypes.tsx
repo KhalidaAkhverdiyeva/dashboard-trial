@@ -1,7 +1,7 @@
-import { MouseEventHandler } from "react";
+// import { MouseEventHandler } from "react";
 
 export interface FilterModalProps {
-  closeDropdown: MouseEventHandler<HTMLImageElement>;
+  closeDropdown: () => void; // Function without arguments
   showDropdown: boolean;
   title: string;
   options: string[];

@@ -1,18 +1,15 @@
 import { mockData } from "../../static/mockspidata";
 
 const PlanTable = () => {
-  // Function to get the color based on the SPI value
   const getSPIColor = (value: number): string => {
     if (value > 1) {
-      return "text-[#38C782]"; // Green color for > 1
+      return "text-[#38C782]";
     } else if (value >= 0.9) {
-      return "text-[#EEBE17]"; // Yellow color for 0.9 - 1
+      return "text-[#EEBE17]";
     } else {
-      return "text-[#E92626]"; // Red color for < 0.9
+      return "text-[#E92626]";
     }
   };
-
-  // Mock data with SPI values
 
   return (
     <div className="mt-[12px]">
@@ -42,7 +39,7 @@ const PlanTable = () => {
               </th>
               <th
                 colSpan={2}
-                className="text-center border border-[#32B19F] bg-[#219886] text-[16px] font-[600] text-white rounded-tr-[8px] rounded-tl-[8px] whitespace-nowrap"
+                className="text-center border border-[#32B19F] bg-[#219886] text-[16px] font-[600] text-white  rounded-tl-[8px] whitespace-nowrap"
               >
                 Imtahan
               </th>

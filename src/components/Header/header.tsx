@@ -1,5 +1,5 @@
 "use client";
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import FilterModal from "../Filter Modal/filterModal";
 import SummaryOptions from "./summaryOptions";
 
@@ -15,8 +15,7 @@ const Header: React.FC<HeaderProps> = ({ onTableChange, activeTable }) => {
     setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
 
-  const closeDropdown: MouseEventHandler<HTMLImageElement> = (e) => {
-    e.stopPropagation();
+  const closeDropdown = () => {
     setOpenDropdown(null);
   };
 

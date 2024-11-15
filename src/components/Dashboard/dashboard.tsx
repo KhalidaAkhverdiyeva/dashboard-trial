@@ -15,7 +15,10 @@ const Dashboard: React.FC = () => {
   const toggleSection = () => setIsPlanSectionOpen((prev) => !prev);
 
   return (
-    <div className="relative h-screen flex">
+    <div
+      onMouseLeave={() => setIsOpen(false)}
+      className="relative h-screen flex"
+    >
       <div
         className={`fixed top-0 left-0 h-full bg-[#172847] text-white transform transition-all duration-300 ease-in-out z-20 ${
           isOpen ? "w-[290px]" : "w-[40px]"

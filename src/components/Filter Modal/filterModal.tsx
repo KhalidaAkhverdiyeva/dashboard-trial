@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 import { FilterModalProps } from "../../Types/filterModalTypes";
 
 const FilterModal: FC<FilterModalProps> = ({
@@ -7,6 +7,8 @@ const FilterModal: FC<FilterModalProps> = ({
   title,
   options,
 }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
   const [selectedOptions, setSelectedOptions] = useState<Set<string>>(
     new Set()
   );
@@ -41,21 +43,47 @@ const FilterModal: FC<FilterModalProps> = ({
     setSelectedOptions(new Set());
   };
 
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        showDropdown && // Only act if the dropdown is visible
+        modalRef.current && // Ensure the modal reference exists
+        !modalRef.current.contains(event.target as Node) // Check if click is outside
+      ) {
+        closeDropdown(); // Close the dropdown
+      }
+    };
+
+    if (showDropdown) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      // Clean up listener to avoid memory leaks
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [showDropdown, closeDropdown]);
+
   return (
     <div
-      className={`absolute top-full left-0 w-[313px] bg-white border border-[#E5E7EA] rounded transition-all duration-300 ease-in-out transform ${
+      ref={modalRef}
+      className={`absolute top-full left-0 w-[313px] z-[50] bg-white border border-[#E5E7EA] rounded transition-all duration-300 ease-in-out transform ${
         showDropdown
           ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
           : "opacity-0 scale-95 translate-y-[-10px] pointer-events-none"
       }`}
     >
-      <div className="bg-[#F6F7F8] mt-[10px] pl-[20px] pr-[10px] flex items-center justify-between text-[#22385F] font-[500]">
+      <div
+        onClick={closeDropdown}
+        className="bg-[#F6F7F8] cursor-pointer mt-[10px] pl-[20px] pr-[10px] flex items-center justify-between text-[#22385F] font-[500]"
+      >
         {title}
         <img
-          onClick={closeDropdown}
           src="/icons/cuida_x-outline (2).png"
-          alt=""
-          className="w-[20px] h-[20px] cursor-pointer"
+          alt="Close"
+          className="w-[20px] h-[20px] "
         />
       </div>
 

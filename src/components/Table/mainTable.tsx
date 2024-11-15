@@ -26,7 +26,7 @@ const MainTable = () => {
               </th>
               <th
                 colSpan={4}
-                className="text-center border border-[#33B3A0] bg-[#219886] text-[16px] font-[600] text-white rounded-tr-[8px] rounded-tl-[8px] whitespace-nowrap"
+                className="text-center border border-[#33B3A0] bg-[#219886] text-[16px] font-[600] text-white  rounded-tl-[8px] whitespace-nowrap"
               >
                 Vakansiya Elanı
               </th>
