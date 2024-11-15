@@ -1,5 +1,3 @@
-import React from "react";
-
 // Mock data for the table with meaningful data
 const mockData = [
   {
