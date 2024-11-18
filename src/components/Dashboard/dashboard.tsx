@@ -4,14 +4,18 @@ const Dashboard: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlanSectionOpen, setIsPlanSectionOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("masterSchedule");
+  const [isTextVisible, setIsTextVisible] = useState(false); // New state to control text visibility
 
   const openDashboard = () => {
     setIsOpen(true);
-  };
-  const closeDashboard = () => {
-    setIsOpen(false);
+    setIsTextVisible(false); // Reset opacity to 0 before showing the sidebar
+    setTimeout(() => setIsTextVisible(true), 50); // Delay text appearance after opening
   };
 
+  const closeDashboard = () => {
+    setIsTextVisible(false);
+    setIsOpen(false);
+  };
   const toggleSection = () => setIsPlanSectionOpen((prev) => !prev);
 
   return (
@@ -34,12 +38,18 @@ const Dashboard: React.FC = () => {
             <img
               src="/icons/Planlama (1).png"
               alt="menuIcon"
-              className=" w-[44px] h-[44px]"
+              className={` w-[44px] h-[44px] `}
             />
 
             {isOpen && (
               <div className="flex items-center w-full justify-between">
-                <p className="text-[14px] text-[#C9CACB]">Menu</p>
+                <p
+                  className={`text-[14px] text-[#C9CACB] ${
+                    isTextVisible ? "opacity-100" : "opacity-0"
+                  } `}
+                >
+                  Menu
+                </p>{" "}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -49,7 +59,9 @@ const Dashboard: React.FC = () => {
                   <img
                     src="/icons/cuida_x-outline (1).png"
                     alt="xIcon"
-                    className="w-[20px] h-[20px]"
+                    className={`w-[20px] h-[20px] ${
+                      isTextVisible ? "opacity-100" : "opacity-0"
+                    }   `}
                   />
                 </button>
               </div>
@@ -62,19 +74,23 @@ const Dashboard: React.FC = () => {
                 <img
                   src="/icons/bitcoin-icons_search-outline (1).png"
                   alt="searchIcon"
-                  className="  w-[20px] h-[20px] "
+                  className={`  w-[20px] h-[20px] ${
+                    isTextVisible ? "opacity-100" : "opacity-0"
+                  } `}
                 />
               </div>
               <input
                 type="text"
                 placeholder="Search"
-                className="placeholder:text-[#5B677E] bg-transparent focus:outline-none"
+                className={`placeholder:text-[#5B677E] bg-transparent focus:outline-none ${
+                  isTextVisible ? "opacity-100" : "opacity-100 "
+                }`}
               />
             </div>
           )}
           <div
             className={`flex justify-center transition-all delay-300 ease-in-out text-[#C9CACB] px-[10px] py-[6px] gap-[10px] mx-[-2px] ${
-              isOpen ? "w-full mt-[20px]" : "mt-[35px]"
+              isOpen ? "w-full mt-[20px]" : "mt-[20px]"
             }`}
           >
             <img
@@ -84,8 +100,14 @@ const Dashboard: React.FC = () => {
             />
 
             {isOpen && (
-              <div className="flex transition-all delay-300 ease-in-out items-center w-full justify-between">
-                <p className="text-[14px] text-[#C9CACB]">Satınalma İcmalı</p>
+              <div className="flex  items-center w-full justify-between">
+                <p
+                  className={`${
+                    isTextVisible ? "opacity-100" : "opacity-0"
+                  } text-[14px] text-[#C9CACB] whitespace-nowrap`}
+                >
+                  Satınalma İcmalı
+                </p>
                 <button>
                   <img
                     src="/icons/Ellipse 18 (1).png"
@@ -97,17 +119,13 @@ const Dashboard: React.FC = () => {
             )}
           </div>
           <div
-            // onMouseEnter={() => setIsPlanSectionOpen(true)}
-            // onTransitionEnd={() => {
-            //   if (!isPlanSectionOpen) setIsPlanSectionOpen(false);
-            // }}
             onMouseLeave={() => setIsPlanSectionOpen(false)}
             onClick={(e) => {
               e.stopPropagation();
               toggleSection();
             }}
             className={`flex flex-col text-[#C9CACB] rounded-[8px] py-[6px] ${
-              isOpen ? "mt-[20px] bg-[#1F3D74]" : "mt-[30px]"
+              isOpen ? "mt-[20px] bg-[#1F3D74]" : "mt-[20px]"
             }`}
           >
             <div className="flex gap-[10px] w-full px-[10px]">
@@ -117,9 +135,23 @@ const Dashboard: React.FC = () => {
                 className="w-[20px] h-[20px]"
               />
               {isOpen && (
-                <div className="flex transition-all delay-300 ease-in-out items-center w-full justify-between">
-                  <div className="flex gap-[7px] items-center cursor-pointer">
-                    <p className="text-[14px] text-[#C9CACB]">Planlama</p>
+                <div
+                  className={`flex items-center w-full justify-between ${
+                    isTextVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <div
+                    className={`flex gap-[7px] items-center cursor-pointer ${
+                      isTextVisible ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <p
+                      className={`text-[14px] text-[#C9CACB] ${
+                        isTextVisible ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      Planlama
+                    </p>
                     <img
                       src="/icons/prime_sort-down-fill (1).png"
                       alt="Dropdown Icon"
@@ -157,7 +189,7 @@ const Dashboard: React.FC = () => {
                 />
                 {isOpen && (
                   <div className="flex items-center w-full justify-between">
-                    <p className="text-[12px] transition-all ease-in-out group-hover:text-[#FFFF] text-[#C9CACB]">
+                    <p className="text-[12px] transition-all ease-in-out opacity-0 group-hover:text-[#FFFF] text-[#C9CACB]">
                       Master Schedule
                     </p>
                     <button>
@@ -245,7 +277,13 @@ const Dashboard: React.FC = () => {
 
             {isOpen && (
               <div className="flex items-center w-full justify-between">
-                <p className="text-[14px] text-[#C9CACB]">Maliyyə</p>
+                <p
+                  className={`text-[14px] text-[#C9CACB] ${
+                    isTextVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  Maliyyə
+                </p>
                 <button>
                   <img
                     src="/icons/Ellipse 18 (1).png"
@@ -268,8 +306,22 @@ const Dashboard: React.FC = () => {
             />
 
             {isOpen && (
-              <div className="flex items-center w-full justify-between">
-                <p className="text-[14px] text-[#C9CACB]">Şirkət Məlumatları</p>
+              <div
+                className={`flex items-center transition-all ease-in-out w-full justify-between ${
+                  isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                }`}
+                style={{
+                  transition:
+                    "opacity 0.5s ease-in-out, visibility 0.5s ease-in-out",
+                }}
+              >
+                <p
+                  className={`text-[14px] text-[#C9CACB] whitespace-nowrap ${
+                    isTextVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  Şirkət Məlumatları
+                </p>
                 <button>
                   <img
                     src="/icons/Ellipse 18 (1).png"
@@ -293,7 +345,13 @@ const Dashboard: React.FC = () => {
 
             {isOpen && (
               <div className="flex items-center w-full justify-between">
-                <p className="text-[14px] text-[#C9CACB]">İş qrafiki</p>
+                <p
+                  className={`text-[14px] text-[#C9CACB] ${
+                    isTextVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  İş qrafiki
+                </p>
                 <button>
                   <img
                     src="/icons/Ellipse 18 (1).png"
@@ -317,7 +375,13 @@ const Dashboard: React.FC = () => {
 
             {isOpen && (
               <div className="flex items-center w-full justify-between">
-                <p className="text-[14px] text-[#C9CACB]">Keyfiyyət</p>
+                <p
+                  className={`text-[14px] text-[#C9CACB] ${
+                    isTextVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  Keyfiyyət
+                </p>
                 <button>
                   <img
                     src="/icons/Ellipse 18 (1).png"
